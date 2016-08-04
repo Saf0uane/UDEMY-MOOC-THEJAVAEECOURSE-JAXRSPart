@@ -31,8 +31,8 @@ public class Passenger implements Serializable {
     @GeneratedValue( strategy = GenerationType.AUTO )
     private Integer     id;
 
-    private String      firstName;
-    private String      lastName;
+    private String      first_name;
+    private String      last_name;
 
     @Temporal( TemporalType.DATE )
     private Date        dob;
@@ -51,20 +51,20 @@ public class Passenger implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName( String firstName ) {
-        this.firstName = firstName;
+    public void setFirst_name( String first_name ) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName( String lastName ) {
-        this.lastName = lastName;
+    public void setLast_name( String last_name ) {
+        this.last_name = last_name;
     }
 
     public Date getDob() {
@@ -89,6 +89,12 @@ public class Passenger implements Serializable {
 
     public void setFlightClass( FlightClass flightClass ) {
         this.flightClass = flightClass;
+    }
+
+    @Override
+    public String toString() {
+        return "Passenger [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", dob=" + dob
+                + ", gender=" + gender + ", flightClass=" + flightClass + "]";
     }
 
 }
