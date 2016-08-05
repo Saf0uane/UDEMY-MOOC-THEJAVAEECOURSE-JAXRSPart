@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -39,6 +41,10 @@ public class Flight implements Serializable {
 
     @Temporal( TemporalType.TIMESTAMP )
     private Date               flightTime;
+
+    @OneToOne
+    @JoinColumn( name = "airplane_fk" )
+    private Airplane           airplaneDetail;
 
     public Integer getId() {
         return id;
@@ -78,6 +84,14 @@ public class Flight implements Serializable {
 
     public void setFlightTime( Date flightTime ) {
         this.flightTime = flightTime;
+    }
+
+    public Airplane getAirplaneDetail() {
+        return airplaneDetail;
+    }
+
+    public void setAirplaneDetail( Airplane airplaneDetail ) {
+        this.airplaneDetail = airplaneDetail;
     }
 
     @Override
