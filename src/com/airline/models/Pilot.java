@@ -10,11 +10,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 /**
  * Entity implementation class for Entity: Pilot
  * 
  */
+@NamedQuery( name = "Pilot.findById", query = "SELECT p FROM Pilot p WHERE p.id = :id" )
 @Entity
 public class Pilot implements Serializable {
 
