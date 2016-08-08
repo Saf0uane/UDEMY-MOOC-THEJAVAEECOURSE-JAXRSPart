@@ -2,80 +2,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>Flights List</title>
+<title>Passengers List</title>
 </head>
 <body>
 
-	<h1>List of Flights</h1>
+	<h1>List of Passengers</h1>
 	
 	<table>
 		<tr>
-			<th>From </th>
-			<th>To </th>
-			<th>Time </th>
-			<th>Price </th>
-			<th>Airplane </th>
-			<th>Seating </th>
-			<th>Number of pilots</th>
-			<th>Pilot names</th>
+		
+			<th>First Name </th>
+			<th>Last Name </th>
+			<th>Date of Birth </th>
+			<th>Gender </th>
+			
 		</tr>
 		
 		<%
-			List<Flight> fList = (List<Flight>) request.getAttribute("flight_list");
-			for(Integer i=0; i<fList.size(); i++){
+			List<Passenger> pList = (List<Passenger>) request.getAttribute("passenger_list");
+			for(Integer i=0; i<pList.size(); i++){
 		%>
 		
 			<tr>
 			
-				<td><%= fList.get(i).getFlightOrigin() %></td>
-				<td><%= fList.get(i).getFlightDestination() %></td>
-				<td><%= fList.get(i).getFlightTime() %></td>
-				<td><%= fList.get(i).getPrice() %></td>
+				<td><%= pList.get(i).getFirst_name(  ) %></td>
+				<td><%= pList.get(i).getLast_name(  ) %></td>
+				<td><%= pList.get(i).getDob(  ) %></td>
+				<td><%= pList.get(i).getGender(  ) %></td>
 				
-				<td><%= fList.get(i).getAirplaneDetail().getPlaneMake() + " " + fList.get(i).getAirplaneDetail().getModelName() %></td>
-				<td><%= fList.get(i).getAirplaneDetail().getSeatingCapacity() %></td>
-				
-				<td>
-				
-					<% 
-						if(fList.get( i ).getPilots() != null ) {
-						    
-						
-					%>
-						<%= fList.get(i).getPilots().size() %> pilots
-						
-					<%
-						}
-						else {
-						    
-					
-					%>
-					
-					No pilots yet
-					
-					<%
-						}
-					%>
-				
-				</td>
-				
-				<td>
-					<%if(fList.get(i).getPilots() != null) {
-					    List<Pilot> pList = (List<Pilot>) fList.get(i).getPilots();
-					    
-					    for(Integer j = 0; j<pList.size(); j++) {
-					    %>
-						    <%=
-						    	(j+1)+ ") " + pList.get(j).getFirstName( ) + pList.get(j).getLastName()
-						    	+ "() " + pList.get(j).getPilotRank() + ")" + "<br />"
-						    %>
-						<%
-					    }
-
-					}
-					%>
-				</td>
-				
+			</tr>
+			
+			<tr>
+				<td colspan="4"> No Flight tickets yet. </td>
 			</tr>
 			
 		<%

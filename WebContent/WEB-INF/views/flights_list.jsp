@@ -78,6 +78,10 @@
 				
 			</tr>
 			
+			<tr>
+				<td colspan="8"> No Passengers of this flight yet. </td>
+			</tr>
+			
 		<%
 			}
 		%>
