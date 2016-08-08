@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -46,7 +47,7 @@ public class Flight implements Serializable {
     @Temporal( TemporalType.TIMESTAMP )
     private Date               flightTime;
 
-    @OneToOne
+    @OneToOne( cascade = { CascadeType.PERSIST, CascadeType.REMOVE } )
     @JoinColumn( name = "airplane_fk" )
     private Airplane           airplaneDetail;
 
