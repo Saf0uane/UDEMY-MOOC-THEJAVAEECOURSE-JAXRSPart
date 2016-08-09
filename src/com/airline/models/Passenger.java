@@ -2,6 +2,7 @@ package com.airline.models;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -29,19 +31,22 @@ public class Passenger implements Serializable {
 
     @Id
     @GeneratedValue( strategy = GenerationType.AUTO )
-    private Integer     id;
+    private Integer      id;
 
-    private String      first_name;
-    private String      last_name;
+    private String       first_name;
+    private String       last_name;
 
     @Temporal( TemporalType.DATE )
-    private Date        dob;
+    private Date         dob;
 
     @Enumerated( EnumType.STRING )
-    private Gender      gender;
+    private Gender       gender;
 
     @Enumerated( EnumType.STRING )
-    private FlightClass flightClass;
+    private FlightClass  flightClass;
+
+    @ManyToMany( mappedBy = "passengers" )
+    private List<Flight> flights;
 
     public Integer getId() {
         return id;
@@ -91,10 +96,18 @@ public class Passenger implements Serializable {
         this.flightClass = flightClass;
     }
 
+    public List<Flight> getFlights() {
+        return flights;
+    }
+
+    public void setFlights( List<Flight> flights ) {
+        this.flights = flights;
+    }
+
     @Override
     public String toString() {
         return "Passenger [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", dob=" + dob
-                + ", gender=" + gender + ", flightClass=" + flightClass + "]";
+                + ", gender=" + gender + ", flightClass=" + flightClass + ", flights=" + flights + "]";
     }
 
 }

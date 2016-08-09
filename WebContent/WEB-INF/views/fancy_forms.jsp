@@ -146,7 +146,7 @@
 			
 			Pilot rank:
 			
-			<select name="Month">
+			<select name="pilot_rank">
 				<option value = "Captain">Captain</option>
 				<option value = "First_Officer">First Officer</option>
 				<option value = "Junior_Officer">Junior Officer</option>

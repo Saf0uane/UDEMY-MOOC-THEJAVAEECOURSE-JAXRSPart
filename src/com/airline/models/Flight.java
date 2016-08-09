@@ -12,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -53,6 +55,10 @@ public class Flight implements Serializable {
 
     @OneToMany( mappedBy = "flightForPilot" )
     private List<Pilot>        pilots;
+
+    @ManyToMany
+    @JoinTable( name = "f_p_join", joinColumns = @JoinColumn( name = "flight_fk" ), inverseJoinColumns = @JoinColumn( name = "passenger_fk" ) )
+    private List<Passenger>    passengers;
 
     public Integer getId() {
         return id;
@@ -110,11 +116,19 @@ public class Flight implements Serializable {
         this.pilots = pilots;
     }
 
+    public List<Passenger> getPassengers() {
+        return passengers;
+    }
+
+    public void setPassengers( List<Passenger> passengers ) {
+        this.passengers = passengers;
+    }
+
     @Override
     public String toString() {
         return "Flight [id=" + id + ", flightOrigin=" + flightOrigin + ", flightDestination=" + flightDestination
                 + ", price=" + price + ", flightTime=" + flightTime + ", airplaneDetail=" + airplaneDetail
-                + ", pilots=" + pilots + "]";
+                + ", pilots=" + pilots + ", passengers=" + passengers + "]";
     }
 
 }
