@@ -167,7 +167,7 @@
 		
 		<h1>Add Passenger</h1>
 		
-		<form method="POST" action = "">
+		<form method="POST" action = "AddPassenger">
 		
 			First Name:
 			<input name = "first_name" type = "text" />
@@ -196,7 +196,7 @@
 		
 		<h1>Add passenger to flight</h1>
 		
-		<form method = "POST" action="">
+		<form method = "POST" action="AddPassengerToFlight">
 		
 			Add a passenger with an id of
 			<input name="pid" type = "text" />
@@ -215,7 +215,7 @@
 		
 		<h1>Add flight to passenger <span style = "font-size: 16px; vertical-align: middle;">(give a passenger another flight ticket to his/her collection of flight tickets)</span> </h1>
 		
-		<form method = "POST" action = "" >
+		<form method = "POST" action = "AddFlightTicketsToPassenger" >
 		
 				Add a ticket fora flight with an id of
 				<input name = "fid" type = "text" />

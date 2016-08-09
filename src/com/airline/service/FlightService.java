@@ -54,6 +54,10 @@ public class FlightService {
 
     }
 
+    public void addPassengerToFlight( String passengerId, String flightId ) {
+
+    }
+
     public List<Flight> getFlights() {
 
         TypedQuery<Flight> query = em.createQuery( "SELECT f FROM Flight f", Flight.class );
