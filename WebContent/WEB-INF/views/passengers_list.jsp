@@ -11,6 +11,7 @@
 	<table>
 		<tr>
 		
+			<th>Id</th>
 			<th>First Name </th>
 			<th>Last Name </th>
 			<th>Date of Birth </th>
@@ -25,10 +26,11 @@
 		
 			<tr>
 			
-				<td><%= pList.get(i).getFirst_name(  ) %></td>
-				<td><%= pList.get(i).getLast_name(  ) %></td>
-				<td><%= pList.get(i).getDob(  ) %></td>
-				<td><%= pList.get(i).getGender(  ) %></td>
+				<td><%= pList.get(i).getId() %></td>
+				<td><%= pList.get(i).getFirst_name() %></td>
+				<td><%= pList.get(i).getLast_name() %></td>
+				<td><%= pList.get(i).getDob() %></td>
+				<td><%= pList.get(i).getGender() %></td>
 				
 			</tr>
 			
