@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.airline.models.FlightClass;
 import com.airline.models.Gender;
 import com.airline.models.Passenger;
 import com.airline.service.PassengerService;
@@ -41,25 +40,6 @@ public class AddPassenger extends HttpServlet {
     protected void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException,
             IOException {
 
-        Passenger p = new Passenger();
-        p.setFirst_name( "Safouane" );
-        p.setLast_name( "EL MARDI" );
-
-        Calendar cal = Calendar.getInstance();
-        cal.set( Calendar.YEAR, 1993 );
-        cal.set( Calendar.MONTH, 07 );
-        cal.set( Calendar.DAY_OF_MONTH, 29 );
-
-        Date dob = cal.getTime();
-
-        p.setDob( dob );
-        p.setGender( Gender.Male );
-        p.setFlightClass( FlightClass.First );
-
-        System.out.println( p );
-
-        ps.addPassenger( p );
-
     }
 
     /**
@@ -68,7 +48,34 @@ public class AddPassenger extends HttpServlet {
      */
     protected void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException,
             IOException {
-        // TODO Auto-generated method stub
+
+        Passenger p = new Passenger();
+
+        String fName = request.getParameter( "first_name" );
+        String lName = request.getParameter( "last_name" );
+        String dob_raw = request.getParameter( "dob" );
+        String gender = request.getParameter( "gender" );
+
+        p.setFirst_name( fName );
+        p.setLast_name( lName );
+
+        String[] dobArr = dob_raw.split( "\\/" );
+
+        Calendar cal = Calendar.getInstance();
+        cal.set( Calendar.YEAR, Integer.parseInt( dobArr[2] ) );
+        cal.set( Calendar.MONTH, Integer.parseInt( dobArr[0] ) );
+        cal.set( Calendar.DAY_OF_MONTH, Integer.parseInt( dobArr[1] ) );
+
+        Date dob = cal.getTime();
+
+        p.setDob( dob );
+
+        p.setGender( Gender.valueOf( gender ) );
+
+        ps.addPassenger( p );
+
+        response.sendRedirect( "Passengers" );
+
     }
 
 }
