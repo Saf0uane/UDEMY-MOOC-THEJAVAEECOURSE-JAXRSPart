@@ -1,11 +1,12 @@
 package com.airline.models;
 
 public enum FlightDestinations {
-    Rabat,
-    Meknes,
-    Paris,
-    Dakhla,
+    San_Francisco,
+    Los_Angeles,
     New_York,
-    Taounate
+    London,
+    Paris,
+    Rome,
+    Amsterdam
 
 }

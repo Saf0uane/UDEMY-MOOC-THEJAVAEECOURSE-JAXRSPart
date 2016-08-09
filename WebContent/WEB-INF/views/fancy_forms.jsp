@@ -21,7 +21,7 @@
 		
 		<h1>Add flight and airplane</h1>
 		
-		<form method="POST" action="">
+		<form method="POST" action="AddFlight">
 		
 			From:
 			
@@ -69,19 +69,19 @@
 			
 			Month:
 			
-			 <select name="Month">
-				<option value = "2015">January</option>
-				<option value = "2016">February</option>
-				<option value = "2017">March</option>
-				<option value = "2018">April</option>
-				<option value = "2019">May</option>
-				<option value = "2020">June</option>
-				<option value = "2021">July</option>
-				<option value = "2021">August</option>
-				<option value = "2021">September</option>
-				<option value = "2021">October</option>
-				<option value = "2021">November</option>
-				<option value = "2021">December</option>
+			 <select name="month">
+				<option value = "1">January</option>
+				<option value = "2">February</option>
+				<option value = "3">March</option>
+				<option value = "4">April</option>
+				<option value = "5">May</option>
+				<option value = "6">June</option>
+				<option value = "7">July</option>
+				<option value = "8">August</option>
+				<option value = "9">September</option>
+				<option value = "10">October</option>
+				<option value = "11">November</option>
+				<option value = "12">December</option>
 			</select>
 			
 			<br/><br/>
