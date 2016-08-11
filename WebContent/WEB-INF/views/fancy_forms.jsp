@@ -217,7 +217,7 @@
 		
 		<form method = "POST" action = "AddFlightTicketsToPassenger" >
 		
-				Add a ticket fora flight with an id of
+				Add a ticket for a flight with an id of
 				<input name = "fid" type = "text" />
 				
 				To a Passenger with an id of
