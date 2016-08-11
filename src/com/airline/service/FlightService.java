@@ -82,7 +82,7 @@ public class FlightService {
 
         Root<Flight> fRoot = cqFlight.from( Flight.class );
 
-        cqFlight.select( fRoot ).where( builder.equal( pRoot.get( "id" ).as( Integer.class ), flightId ) );
+        cqFlight.select( fRoot ).where( builder.equal( fRoot.get( "id" ).as( Integer.class ), flightId ) );
 
         TypedQuery<Flight> fQuery = em.createQuery( cqFlight );
 
