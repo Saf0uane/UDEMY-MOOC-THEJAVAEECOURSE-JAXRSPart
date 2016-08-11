@@ -81,7 +81,27 @@
 			</tr>
 			
 			<tr>
-				<td colspan="8"> No Passengers of this flight yet. </td>
+				<td colspan="9"> 
+					<%
+						if(fList.get( i ).getPassengers().size() > 0) {
+						    List<Passenger> passengerList = (List<Passenger>) fList.get( i ).getPassengers();
+						    
+						    for(Integer k = 0; k<passengerList.size(); k++){
+					
+
+					%>
+							<%= k+1 %>) <%= passengerList.get( k ).getFirst_name(  ) %> <%= passengerList.get( k ).getLast_name(  ) %> <br/>
+					
+					<%
+							} //for
+						}else {
+						   
+					%>
+						No passengers in this flight Yet
+					<%
+						}
+					%>
+				</td>
 			</tr>
 			
 		<%

@@ -86,7 +86,15 @@ public class FlightService {
 
         TypedQuery<Flight> fQuery = em.createQuery( cqFlight );
 
-        Passenger f = pQuery.getSingleResult();
+        Flight f = fQuery.getSingleResult();
+
+        // Associate Flight & Passenger
+
+        List<Passenger> pList = f.getPassengers();
+        pList.add( p );
+        f.setPassengers( pList );
+        p.getFlights().add( f );
+
     }
 
     public List<Flight> getFlights() {
